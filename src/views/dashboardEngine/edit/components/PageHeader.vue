@@ -15,12 +15,13 @@
   .page-header {
     box-shadow: 0 4px 6px #0c1f500a;
     z-index: 100;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     .left {
-      padding: 1em;
+      padding-left: 1em;
     }
   }
 </style>

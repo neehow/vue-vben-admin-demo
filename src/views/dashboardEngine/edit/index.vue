@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="edit-page">
     <PageHeader />
 
-    <div class="main">
+    <div class="main flex">
       <ComponentList />
       <PageContent />
       <ComponentSetting />
@@ -23,7 +23,11 @@
   }, 1500);
 </script>
 <style lang="less" scoped>
+  .edit-page {
+    height: 100%;
+  }
+
   .main {
-    display: flex;
+    height: calc(100% - 60px);
   }
 </style>
