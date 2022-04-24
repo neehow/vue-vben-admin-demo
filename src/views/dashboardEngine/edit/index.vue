@@ -4,7 +4,7 @@
 
     <div class="main flex">
       <ComponentList @add-component="onAddComponent" />
-      <PageContent :components="[]" />
+      <PageContent :components="components" />
       <ComponentSetting :componentConfig="{}" />
     </div>
   </div>
@@ -27,6 +27,7 @@
     components.value.push({
       type,
     });
+    console.log(components);
   };
 </script>
 <style lang="less" scoped>
