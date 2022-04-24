@@ -3,9 +3,9 @@
     <PageHeader />
 
     <div class="main flex">
-      <ComponentList />
-      <PageContent />
-      <ComponentSetting />
+      <ComponentList @add-component="onAddComponent" />
+      <PageContent :components="[]" />
+      <ComponentSetting :componentConfig="{}" />
     </div>
   </div>
 </template>
@@ -21,6 +21,13 @@
   setTimeout(() => {
     loading.value = false;
   }, 1500);
+
+  const components = ref([]);
+  const onAddComponent = (type) => {
+    components.value.push({
+      type,
+    });
+  };
 </script>
 <style lang="less" scoped>
   .edit-page {
