@@ -4,7 +4,11 @@
 
     <div class="main flex">
       <ComponentList @add-component="onAddComponent" />
-      <PageContent :components="components" />
+      <ComponentPreview
+        :components="components"
+        @click-component="onClickComponent"
+        :activeIndex="activeIndex"
+      />
       <ComponentSetting :componentConfig="{}" />
     </div>
   </div>
@@ -14,7 +18,7 @@
   import PageHeader from './components/PageHeader.vue';
   import ComponentList from './components/ComponentList.vue';
   import ComponentSetting from './components/ComponentSetting.vue';
-  import PageContent from './components/PageContent.vue';
+  import ComponentPreview from './components/ComponentPreview.vue';
 
   const loading = ref(true);
 
@@ -23,12 +27,20 @@
   }, 1500);
 
   const components = ref([]);
-  const onAddComponent = (type) => {
+  const activeIndex = ref(-1);
+
+  function onAddComponent(type) {
     components.value.push({
       type,
     });
+
+    activeIndex.value = components.value.length - 1;
     console.log(components);
-  };
+  }
+
+  function onClickComponent(index) {
+    activeIndex.value = index;
+  }
 </script>
 <style lang="less" scoped>
   .edit-page {
